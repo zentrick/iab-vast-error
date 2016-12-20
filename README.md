@@ -13,8 +13,8 @@ try {
   throw new VASTError(100)
 } catch (e) {
   if (e instanceof VASTError) {
-    // ex.code -> 100
-    // ex.message -> 100 (XML parsing error.)
+    // e.code -> 100
+    // e.message -> 100 (XML parsing error.)
   }
 }
 ```
