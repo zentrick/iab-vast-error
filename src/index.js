@@ -1,7 +1,7 @@
 import errorCodes from './error-codes.js'
 import ExtendableError from 'es6-error'
 
-const errorCode = Symbol
+const errorCode = Symbol()
 
 export default class VASTError extends ExtendableError {
   constructor (code = 900) {
