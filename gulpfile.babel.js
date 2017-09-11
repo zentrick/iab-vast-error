@@ -5,7 +5,7 @@ import del from 'del'
 import seq from 'run-sequence'
 import yargs from 'yargs'
 
-const COVERAGE_THRESHOLDS = { global: 90 }
+const COVERAGE_THRESHOLDS = { global: 100 }
 const { CIRCLECI, CIRCLE_TEST_REPORTS, COVERALLS } = process.env
 
 const $ = loadPlugins()
@@ -29,10 +29,7 @@ gulp.task('clean', () => del('lib'))
 gulp.task('build', ['clean'], () => {
   return gulp.src('src/**/*.js')
     .pipe($.sourcemaps.init())
-    .pipe($.babel({
-      presets: ['es2015'],
-      babelrc: false
-    }))
+    .pipe($.babel())
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('lib'))
 })

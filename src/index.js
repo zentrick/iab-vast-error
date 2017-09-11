@@ -1,17 +1,13 @@
-import errorCodes from './error-codes'
+import codeToMessage from './code-to-message'
 import ExtendableError from 'es6-error'
-
-const errorCode = Symbol()
 
 export default class VASTError extends ExtendableError {
   constructor (code = 900) {
-    const text = errorCodes[code]
-    const message = code + (text != null ? ` (${text})` : '')
-    super(message)
-    this[errorCode] = code
-  }
-
-  get code () {
-    return this[errorCode]
+    super(`VAST error ${code}` +
+      ((code in codeToMessage) ? ': ' + codeToMessage[code] : ''))
+    this.code = code
+    this.$type = 'VASTError'
   }
 }
+
+VASTError.CODES = codeToMessage
