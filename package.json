@@ -1,6 +1,6 @@
 {
   "name": "iab-vast-error",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Error class that describes VAST errors.",
   "main": "index.js",
   "jsnext:main": "src/index.js",
